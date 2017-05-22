@@ -27,7 +27,7 @@ public class VevoTest {
     @Before
     public void setUp() {
         vevo = new Vevo("Béla");
-        pizza = new Pizza(Pizza.ALAP, "alap");
+        pizza = new Pizza(PizzaTipus.ALAP, "alap");
         rendeles = new Rendeles(pizza, 1);
     }
     

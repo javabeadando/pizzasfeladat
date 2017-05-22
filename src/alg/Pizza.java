@@ -2,31 +2,27 @@ package alg;
 
 public class Pizza {
 
-    private int arkod;
+    private PizzaTipus tipus;
     private String nev;
-    public static final int ALAP = 1000;
-    public static final int MARGARITHA = 1200;
-    public static final int HAWAII = 1600;
 
-    public Pizza(int arkod, String nev) {
-        this.arkod = arkod;
+    public Pizza(PizzaTipus tipus, String nev) {
         this.nev = nev;
+        setTipus(tipus);
     }
 
-    public int getArkod() {
-        return arkod;
+    public PizzaTipus getTipus() {
+        return tipus;
+    }
+
+    public int getAr() {
+        return tipus.getAr();
     }
 
     public String getNev() {
         return nev;
     }
 
-    public void setArkod(int arkod) {
-        this.arkod = arkod;
+    public void setTipus(PizzaTipus tipus) {
+        this.tipus = tipus;
     }
-
-    
-    
-    
-    
 }
