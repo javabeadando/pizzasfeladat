@@ -20,34 +20,20 @@ public class Vevo {
         rendelesek.add(mit);
     }
 
-    public String getSzamla() {
+    public double getFizetendo() {
         double fizetendo = 0;
+        for (Rendeles rendeles : rendelesek) {
+            fizetendo += rendeles.getRendelesErteke();
+        }
+        return fizetendo;
+    }
+
+    public String getSzamla() {
         String szamla = "Számla " + getNev() + " részére.\n";
         for (Rendeles rendeles : rendelesek) {
-            double reszOsszeg = 0;
-            switch (rendeles.getMitrendelt().getArkod()) {
-                case Pizza.ALAP:
-                    reszOsszeg += (Pizza.ALAP * rendeles.getDarab());
-                    break;
-                case Pizza.MARGARITHA:
-                    reszOsszeg += (Pizza.MARGARITHA * rendeles.getDarab());
-                    break;
-                case Pizza.HAWAII:
-                    reszOsszeg += (Pizza.HAWAII * rendeles.getDarab());
-                    break;
-            }
-            if (rendeles.getDarab() > 5) {
-                reszOsszeg *= 0.9;
-            } //10% kedvezmeny!
-
-            szamla += "  " + rendeles.getMitrendelt().getNev() + "\t" + reszOsszeg + "Ft \n";
-            fizetendo += reszOsszeg;
-
+            szamla += rendeles.toString();
         }
-        szamla += "----------------\nMindösszesen: " + fizetendo + "Ft";
-
+        szamla += "----------------\nMindösszesen: " + getFizetendo() + "Ft";
         return szamla;
-
-
     }
 }
